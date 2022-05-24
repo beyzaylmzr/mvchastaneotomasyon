@@ -1,0 +1,67 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Hasta>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Hasta Bilgileri</h2>
+<br />
+@using (Html.BeginForm("Index", "Hasta", FormMethod.Get))
+{
+<p>
+    Arama Seçeneği: @Html.RadioButton("option", "HastaAd") Hasta @Html.RadioButton("option", "HastaNum")  Hasta No
+    @Html.TextBox("Search_Data")
+    @*Doktor Adı: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)*@
+    <input type="submit" value="Ara" />
+</p>
+}
+<table id="tbl3" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Hasta No</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Cinsiyet</th>
+            <th>Doğum Tarihi</th>
+            <th>Mail</th>
+            <th>Doktoru</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Randevu Bilgileri</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.HastaNum</td>
+            <td>@x.HastaAd</td>
+            <td>@x.HastaSoyad</td>
+            <td>@x.HastaCinsiyet</td>
+            <td>@Convert.ToDateTime(x.HastaDogumtarih).ToString("dd/MM/yyyy")</td>
+            <td>@x.HastaMail</td>
+            <td>@x.Doktor.DoktorAd @x.Doktor.DoktorSoyad</td>
+            <td>
+                <a href="/Hasta/HastaSil/@x.HastaNo" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Hasta/HastaGetir/@x.HastaNo" class="btn btn-success">Güncelle</a>
+            </td>
+            <td>
+                <a href="/Hasta/HastaRandevuBilgi/@x.HastaNo" class="btn btn-primary">Listele</a>
+            </td>
+
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)Model, Page_No => Url.Action("Index", new { Page_No }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+
+
+<a href="/Hasta/YeniHasta/" class="btn btn-primary">Yeni Hasta</a>
+

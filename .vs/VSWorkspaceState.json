@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\MvcHastaneOtomasyon",
+    "\\MvcHastaneOtomasyon\\Migrations",
+    "\\MvcHastaneOtomasyon\\Models",
+    "\\MvcHastaneOtomasyon\\Models\\Siniflar",
+    "\\MvcHastaneOtomasyon\\Views",
+    "\\MvcHastaneOtomasyon\\Views\\Hasta",
+    "\\MvcHastaneOtomasyon\\Views\\Login",
+    "\\MvcHastaneOtomasyon\\Views\\Shared",
+    "\\MvcHastaneOtomasyon\\weblogin"
+  ],
+  "SelectedNode": "\\MvcHastaneOtomasyon.sln",
+  "PreviewInSolutionExplorer": false
+}

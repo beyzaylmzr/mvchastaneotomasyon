@@ -1,0 +1,68 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Doktor>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Doktor Bilgileri</h2>
+<br />
+@using (Html.BeginForm("Index", "Doktor", FormMethod.Get))
+{
+<p>
+    Arama Seçeneği: @Html.RadioButton("option", "DoktorAd") Doktor Ad @Html.RadioButton("option", "Poliklinikid")  Poliklinik Adı
+    @Html.TextBox("Search_Data")
+    @*Doktor Adı: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)*@
+    <input type="submit" value="Ara" />
+</p>
+}
+<table id="tbl2" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Görsel</th>
+            <th>Ad</th>
+            <th>Soyad</th>
+            <th>Mail</th>
+            <th>Poliklinik</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Hasta Listesi</th>
+        </tr>
+    </thead>
+    @foreach (var d in Model)
+    {
+        <tr>
+            <td>
+                <img src="@d.DoktorGorsel" style="width:100px; height:80px;" />
+            </td>
+            <td>@d.DoktorAd</td>
+            <td>@d.DoktorSoyad</td>
+            <td>@d.DoktorMail</td>
+            <td>@d.Poliklinik.PoliklinikAd</td>
+            <td>
+                <a href="/Doktor/DoktorSil/@d.DoktorId" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Doktor/DoktorGetir/@d.DoktorId" class="btn btn-success">Güncelle</a>
+            </td>
+            <td>
+                <a href="/Doktor/HastaListe/@d.DoktorId" class="btn btn-primary">Listele</a>
+            </td>
+
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, Page_No => Url.Action("Index", new { Page_No }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+
+
+<a href="/Doktor/YeniDoktor/" class="btn btn-primary">Yeni Doktor</a>
+
+
+
+
+

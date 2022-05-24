@@ -1,0 +1,44 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.Hasta
+@{
+    ViewBag.Title = "HastaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hasta Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("HastaGuncelle", "Hasta", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.HastaNo)
+    @Html.LabelFor(x => x.HastaAd)
+    @Html.TextBoxFor(x => x.HastaAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HastaAd, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.HastaSoyad)
+    @Html.TextBoxFor(x => x.HastaSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HastaSoyad, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.HastaCinsiyet)
+    @Html.RadioButtonFor(x => x.HastaCinsiyet, "Kadın")
+    <span>Kadın</span>
+    @Html.RadioButtonFor(x => x.HastaCinsiyet, "Erkek")
+    <span>Erkek</span>
+    @Html.ValidationMessageFor(x => x.HastaCinsiyet, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.HastaDogumtarih)
+    @Html.TextBoxFor(x => x.HastaDogumtarih, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.HastaDogumtarih, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.HastaMail)
+    @Html.TextBoxFor(x => x.HastaMail, new { @class = "form-control", @placeholder = "E-mail" })
+    @Html.ValidationMessageFor(x => x.HastaMail, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Doktor.DoktorId)
+    @Html.DropDownListFor(x => x.Doktorid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+</div>
+    <button class="btn btn-warning">Güncelle</button>
+    
+}
+
+

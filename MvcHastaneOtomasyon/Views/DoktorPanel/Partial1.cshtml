@@ -1,0 +1,86 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.Doktor
+
+@using (Html.BeginForm("DoktorBilgiGuncelle", "DoktorPanel", FormMethod.Post))
+{
+    <form class="form-horizontal">
+
+        @Html.HiddenFor(x => x.DoktorId)
+
+        <div class="form-group row">
+
+            <label for="inputName" class="col-sm-2 col-form-label">Ad</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.DoktorAd, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DoktorAd, "", new { @style = "color:red" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputEmail" class="col-sm-2 col-form-label">Soyad</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.DoktorSoyad, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DoktorSoyad, "", new { @style = "color:red" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputName2" class="col-sm-2 col-form-label">E-Mail</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.DoktorMail, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DoktorMail, "", new { @style = "color:red" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputExperience" class="col-sm-2 col-form-label">Poliklinik</label>
+
+            <div class="col-sm-10">
+
+                @Html.LabelFor(x => x.Poliklinik.PoliklinikId)
+                @Html.DropDownListFor(x => x.Poliklinikid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+            </div>
+
+        </div>
+
+        <div class="form-group row">
+
+            <label for="inputSkills" class="col-sm-2 col-form-label">Şifre</label>
+
+            <div class="col-sm-10">
+
+                @Html.TextBoxFor(x => x.DoktorSifre, new { @class = "form-control" })
+                @Html.ValidationMessageFor(x => x.DoktorSifre, "", new { @style = "color:red" })
+
+            </div>
+
+        </div>
+
+
+        <div class="form-group row">
+
+            <div class="offset-sm-2 col-sm-10">
+
+                <button type="submit" class="btn btn-danger">Güncelle</button>
+
+            </div>
+
+        </div>
+
+    </form>
+}

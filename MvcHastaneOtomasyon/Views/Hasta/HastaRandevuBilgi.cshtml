@@ -1,0 +1,33 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar
+@model List<RandevuBilgi>
+@{
+    ViewBag.Title = "HastaRandevuBilgi";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hasta Randevu Bilgileri</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Hasta Ad-Soyad: @ViewBag.h</li>
+</ol>
+<table class="table table-condensed">
+    <tr>
+        <th>Poliklinik</th>
+        <th>Doktor Adı</th>
+        <th>Randevu Tarihi</th>
+        <th>Randevu Saati</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.Doktor.Poliklinik.PoliklinikAd</td>
+            <td>@x.Doktor.DoktorAd @x.Doktor.DoktorSoyad</td>
+            <td>@Convert.ToDateTime(x.RandevuDate).ToString("dd/MM/yyyy")</td>
+            <td>@x.RandevuSaat</td>
+
+        </tr>
+    }
+</table>
+
+

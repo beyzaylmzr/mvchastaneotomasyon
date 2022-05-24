@@ -1,0 +1,28 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.RandevuBilgi
+@{
+    ViewBag.Title = "YeniRandevu";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Yeni Randevu Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Doktor.DoktorId)
+    @Html.DropDownListFor(x => x.Doktorid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Hasta.HastaNo)
+    @Html.DropDownListFor(x => x.Hastano, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.RandevuDate)
+    <input class="form-control" type="date" name="RandevuDate" />
+    @Html.ValidationMessageFor(X => X.RandevuDate, "", new { @style = "color:red" })
+    @*@Html.TextBoxFor(x => x.RandevuDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })*@
+    <br />
+    @Html.LabelFor(x => x.RandevuSaat)
+    <input class="form-control" type="time" name="RandevuSaat" />
+    @Html.ValidationMessageFor(X => X.RandevuSaat, "", new { @style = "color:red" })
+    @*@Html.TextBoxFor(x => x.RandevuSaat, new { @class = "form-control" })*@
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+</form>
+

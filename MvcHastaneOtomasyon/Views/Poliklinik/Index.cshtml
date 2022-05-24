@@ -1,0 +1,55 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar;
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Poliklinikler>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Poliklinik Bilgileri</h2>
+<br />
+@using (Html.BeginForm("Index", "Poliklinik", FormMethod.Get))
+{
+    <p>
+        Poliklinik Adı: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)
+        <input type="submit" value="Ara" />
+    </p>
+}
+
+<table id="tbl4" class="table table-striped">
+    <thead>
+        <tr>
+            <th>Poliklinik</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Doktor Listesi</th>
+        </tr>
+    </thead>
+    @foreach (var p in Model)
+    {
+
+        <tr>
+            <td>
+                @p.PoliklinikAd
+            </td>
+            <td> <a href="/Poliklinik/PoliklinikSil/@p.PoliklinikId" class="btn btn-danger">Sil</a>
+            <td> <a href="/Poliklinik/PoliklinikGetir/@p.PoliklinikId" class="btn btn-success">Güncelle</a></td>
+            <td>
+                <a href="/Poliklinik/DoktorListe/@p.PoliklinikId" class="btn btn-primary">Listele</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager((IPagedList)Model, Page_No => Url.Action("Index", new { Page_No }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+
+
+<a href="/Poliklinik/PoliklinikEkle" class="btn btn-primary">Poliklinik Ekle</a>
+
+
+

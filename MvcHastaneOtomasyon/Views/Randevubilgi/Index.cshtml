@@ -1,0 +1,65 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<RandevuBilgi>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<h2>Randevu Bilgileri</h2>
+<br />
+@using (Html.BeginForm("Index", "Randevubilgi", FormMethod.Get))
+{
+<p>
+    Arama Seçeneği: @Html.RadioButton("option", "DoktorAd") Doktor @Html.RadioButton("option", "Poliklinikid")  Poliklinik
+    @Html.RadioButton("option", "HastaAd") Hasta @Html.RadioButton("option", "HastaNum")  Hasta No
+    @Html.TextBox("Search_Data")
+    @*Doktor Adı: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)*@
+    <input type="submit" value="Ara" />
+</p>
+}
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Randevu No</th>
+            <th>Poliklinik</th>
+            <th>Doktor Ad-Soyad</th>
+            <th>Hasta No</th>
+            <th>Hasta Ad-Soyad</th>
+            <th>Randevu Tarihi</th>
+            <th>Randevu Saati</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.RandevuId</td>
+            <td>@x.Doktor.Poliklinik.PoliklinikAd</td>
+            <td>@x.Doktor.DoktorAd @x.Doktor.DoktorSoyad</td>
+            <td>@x.Hasta.HastaNum</td>
+            <td>@x.Hasta.HastaAd @x.Hasta.HastaSoyad</td>
+            <td>@Convert.ToDateTime(x.RandevuDate).ToString("dd/MM/yyyy")</td>
+            <td>@x.RandevuSaat</td>
+            <td>
+                <a href="/Randevubilgi/RandevuSil/@x.RandevuId" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+                <a href="/Randevubilgi/RandevuGetir/@x.RandevuId" class="btn btn-success">Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.PagedListPager((IPagedList)Model, Page_No => Url.Action("Index", new { Page_No }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+
+
+
+<a href="/Randevubilgi/YeniRandevu/" class="btn btn-primary">Yeni Randevu</a>
+
+

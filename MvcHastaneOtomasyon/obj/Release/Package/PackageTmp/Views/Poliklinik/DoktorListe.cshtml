@@ -1,0 +1,30 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar
+@model List<Doktor>
+@{
+    ViewBag.Title = "DoktorListe";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Doktor Liste Sayfası</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Poliklinik Ad: @ViewBag.d</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th>Doktor No</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Mail</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+    <tr>
+        <td>@x.DoktorId</td>
+        <td>@x.DoktorAd</td>
+        <td>@x.DoktorSoyad</td>
+        <td>@x.DoktorMail</td>
+    </tr>
+    }
+</table>
+

@@ -1,0 +1,49 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Hasta>
+@{
+    ViewBag.Title = "Hastalarim";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+<br />
+<h2>Hastalarım</h2>
+<br />
+@using (Html.BeginForm("Hastalarim", "DoktorPanel", FormMethod.Get))
+{
+    <p>
+        Arama Seçeneği: @Html.RadioButton("option", "HastaAd") Hasta @Html.RadioButton("option", "HastaNum")  Hasta No
+        @Html.TextBox("Search_Data")
+        @*Doktor Adı: @Html.TextBox("Search_Data", ViewBag.FilterValue as string)*@
+        <input type="submit" value="Ara" />
+    </p>
+}
+<table class="table table-bordered">
+    <tr>
+        <th>Hasta No</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Cinsiyet</th>
+        <th>Doğum Tarihi</th>
+        <th>Mail</th>
+        <th>Randevu Bilgileri</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.HastaNum</td>
+            <td>@x.HastaAd</td>
+            <td>@x.HastaSoyad</td>
+            <td>@x.HastaCinsiyet</td>
+            <td>@Convert.ToDateTime(x.HastaDogumtarih).ToString("dd/MM/yyyy")</td>
+            <td>@x.HastaMail</td>
+            <td><a href="/DoktorPanel/DoktorRandevuTakip/@x.HastaNo" class="btn btn-default" style="background-color:gainsboro">Randevu Bilgileri</a></td>
+        </tr>
+    }
+</table>
+@Html.PagedListPager((IPagedList)Model, Page_No => Url.Action("Index", new { Page_No }), new PagedListRenderOptions
+{
+    LiElementClasses = new List<string>
+    {"page-link"}
+})
+

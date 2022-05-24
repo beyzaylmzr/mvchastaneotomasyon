@@ -1,0 +1,20 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.Poliklinikler
+@{
+    ViewBag.Title = "PoliklinikGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Poliklinik Güncelleme</h2>
+<br />
+@using (Html.BeginForm("PoliklinikGuncelle", "Poliklinik", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x => x.PoliklinikAd)
+        @Html.TextBoxFor(x => x.PoliklinikAd, new { @class = "form-control" })
+        @Html.HiddenFor(x => x.PoliklinikId)
+        @Html.ValidationMessageFor(x=>x.PoliklinikAd,"",new {@style="color:red"})
+    </div>
+    <button class="btn btn-warning">Güncelle</button>
+
+}
+

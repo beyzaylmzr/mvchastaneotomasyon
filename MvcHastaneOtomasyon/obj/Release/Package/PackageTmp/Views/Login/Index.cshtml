@@ -1,0 +1,165 @@
+﻿
+@{
+    Layout = null;
+}
+<!--A Design by W3layouts
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Hastane Bilgi Sistemi</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Project Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <!-- Google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=latin-ext" rel="stylesheet">
+    <!-- Google fonts -->
+    <!-- css files -->
+    <link href="~/weblogin/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- //css files -->
+
+    <link rel="stylesheet" href="~/weblogin/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+
+    <link href="~/weblogin/css/popup-box.css" rel="stylesheet" type="text/css" media="all" /> <!-- popup box css -->
+
+</head>
+<!-- body starts -->
+<body>
+
+    <!-- section -->
+    <section class="register">
+        <div class="header">
+            <div class="logo">
+                <a href="#">Hastane Bİlgİ Yönetİm Sİstemİ </a>
+            </div>
+            <div class="social">
+                <li><a href="https://github.com/beyzaylmzr"><span class="fa fa-github"></span></a></li>
+                <li><a href="https://www.linkedin.com/in/beyza-yilmazer-b71311204/"><span class="fa fa-linkedin"></span></a></li>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="register-full">
+            <div class="register-left">
+                <div class="register">
+                    <p style="font-size:24px">Hastane Otomasyonu </p>
+                    <p>
+                        Tıbbi Sekreter ve Doktor kişisel sayfası olmak üzere 2 tane temel yapımız bulunmaktadır.
+                        Giriş Yapmak istediğiniz yetki durumuna göre sağ taraftan ilgili menüyü seçiniz. Doktor girişi için mail adresi ve şifrenizi;
+                        tıbbi sekreter girişi için kullanıcı adı ve şifrenizi giriniz. Hastane bilgi yönetim sistemine giriş yapamıyorsanız
+                        lütfen hastanemizle iletişime geçiniz.
+                    </p>
+                </div>
+            </div>
+            <div class="register-right">
+
+                <div class="register-in">
+                    <a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog">doktor girişi »</a>
+                </div>
+                <div class="register-in">
+                    <a class="book popup-with-zoom-anim button-isi zoomIn animated" data-wow-delay=".5s" href="#small-dialog1">tıbbi sekreter girişi »</a>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <!-- copyright -->
+        <p class="agile-copyright" style="color: black">© 2022 Project. Tüm Hakları Saklıdır | Design by <a href="https://w3layouts.com/" style="color: black" target="_blank">W3layouts</a></p>
+        <!-- //copyright -->
+    </section>
+    <!-- //section -->
+    <!-- login form popup-->
+    <div class="pop-up">
+        <div id="small-dialog" class="mfp-hide book-form">
+
+            <div class="login-form login-form-left">
+                <div class="agile-row">
+                    <h3>Doktor Giriş Formu</h3>
+                    <span class="fa fa-lock"></span>
+                    <div class="clear"></div>
+                    <div class="login-agileits-top">
+                        @using (Html.BeginForm("DoktorLogin1", "Login", FormMethod.Post))
+                        {
+
+
+                            <input type="text" class="name" name="DoktorMail" Placeholder="Mail Adresiniz" required="" />
+                       
+                            <input type="password" class="password" name="DoktorSifre" Placeholder="Şifreniz" required="" />
+                           
+                            <input type="submit" value="Giriş Yap">
+
+                          
+                        }
+                      
+                    </div>
+                    
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- //login form popup-->
+    <!-- subscribe form popup-->
+    <div class="pop-up">
+        <div id="small-dialog1" class="mfp-hide book-form">
+
+            <div class="login-form login-form-left">
+                <div class="agile-row">
+                    <h3>Tıbbi Sekreter Giriş Formu</h3>
+                    <div class="clear"></div>
+                    <div class="login-agileits-top">
+
+                        @using (Html.BeginForm("AdminLogin1", "Login", FormMethod.Post))
+                        {
+                            <input type="text" class="name" name="KullaniciAd" Placeholder="Kullanıcı Adı" required="" />
+                            <input type="password" class="password" name="Sifre" Placeholder="Şifre" required="" />
+                            <input type="submit" value="Giriş Yap">
+                           
+                        }
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- //subscribe form popup-->
+    <!-- register form popup-->
+    <!-- //register form popup-->
+    <!-- js -->
+    <script type="text/javascript" src="~/weblogin/js/jquery-2.1.4.min.js"></script>
+    <!-- //js -->
+    <!--popup-js-->
+    <script src="~/weblogin/js/jquery.magnific-popup.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            $('.popup-with-zoom-anim').magnificPopup({
+                type: 'inline',
+                fixedContentPos: false,
+                fixedBgPos: true,
+                overflowY: 'auto',
+                closeBtnInside: true,
+                preloader: false,
+                midClick: true,
+                removalDelay: 300,
+                mainClass: 'my-mfp-zoom-in'
+            });
+
+        });
+    </script>
+    <!--//popup-js-->
+
+</body>
+<!-- //body ends -->
+</html>

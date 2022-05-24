@@ -1,0 +1,40 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.Doktor
+@{
+    ViewBag.Title = "DoktorGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Doktor Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("DoktorGuncelle", "Doktor", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group" method="post">
+    @Html.LabelFor(x => x.DoktorGorsel)
+    @*@Html.TextBoxFor(x => x.DoktorGorsel, new { @class = "form-control" })*@
+    <input type="file" name="DoktorGorsel" />
+    @Html.ValidationMessageFor(x => x.DoktorGorsel, "", new { @style = "color:red" })
+    <br />
+    @Html.HiddenFor(x => x.DoktorId)
+    @Html.LabelFor(x => x.DoktorAd)
+    @Html.TextBoxFor(x => x.DoktorAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.DoktorAd, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.DoktorSoyad)
+    @Html.TextBoxFor(x => x.DoktorSoyad, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.DoktorSoyad, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.DoktorMail)
+    @Html.TextBoxFor(x => x.DoktorMail, new { @class = "form-control", @placeholder = "E-mail" })
+    @Html.ValidationMessageFor(x => x.DoktorMail, "", new { @style = "color:red" })
+    <br />
+    @Html.LabelFor(x => x.Poliklinik.PoliklinikId)
+    @Html.DropDownListFor(x => x.Poliklinikid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.DoktorSifre)
+    @Html.TextBoxFor(x => x.DoktorSifre, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.DoktorSifre, "", new { @style = "color:red" })
+
+</div>
+    <button class="btn btn-warning" >Güncelle</button>
+   
+}

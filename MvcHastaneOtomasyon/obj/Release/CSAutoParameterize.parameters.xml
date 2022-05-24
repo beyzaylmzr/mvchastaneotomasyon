@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Context-Web.config Connection String" description="Context Veritabanına erişmek için uygulama tarafından web.config'de kullanılan Bağlantı Dizesi." defaultValue="data source=BEYZA;initial catalog=hastanedata;integrated security=True;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Asus\\Desktop\\MvcHastaneOtomasyon\\MvcHastaneOtomasyon\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Context']/@connectionString" />
+  </parameter>
+  <parameter name="Context_DatabasePublish-Web.config Connection String" description="Context_DatabasePublish Veritabanına erişmek için uygulama tarafından web.config'de kullanılan Bağlantı Dizesi." defaultValue="Context_DatabasePublish.ConnetionString" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Asus\\Desktop\\MvcHastaneOtomasyon\\MvcHastaneOtomasyon\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Context_DatabasePublish']/@connectionString" />
+  </parameter>
+</parameters>

@@ -1,0 +1,37 @@
+﻿@using MvcHastaneOtomasyon.Models.Siniflar
+@model List<Hasta>
+@{
+    ViewBag.Title = "HastaListe";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Hasta Liste Sayfası</h2>
+<br />
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Doktor Ad-Soyad: @ViewBag.d</li>
+</ol>
+<table class="table table-hover">
+    <tr>
+        <th>Hasta No</th>
+        <th>Ad</th>
+        <th>Soyad</th>
+        <th>Cinsiyet</th>
+        <th>Doğum Tarihi</th>
+        <th>Mail</th>
+        <th>Randevu Bilgileri</th>
+    </tr>
+    @foreach (var x in Model)
+    {
+<tr>
+    <td>@x.HastaNum</td>
+    <td>@x.HastaAd</td>
+    <td>@x.HastaSoyad</td>
+    <td>@x.HastaCinsiyet</td>
+    <td>@Convert.ToDateTime(x.HastaDogumtarih).ToString("dd/MM/yyyy")</td>
+    <td>@x.HastaMail</td>
+    <td><a href="/Doktor/DoktorHastaRandevuBilgi/@x.HastaNo" class="btn btn-default" style="background-color:gainsboro">Randevu Bilgileri</a></td>
+</tr>
+    }
+</table>
+
+

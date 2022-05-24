@@ -1,0 +1,17 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.Poliklinikler
+@{
+    ViewBag.Title = "PoliklinikEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<br />
+<h2>Yeni Poliklinik Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.PoliklinikAd)
+    @Html.TextBoxFor(x => x.PoliklinikAd, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.PoliklinikAd, "", new { @style = "color:red" })
+    <br />
+    <button class="btn btn-info">Kaydet</button>
+
+</form>

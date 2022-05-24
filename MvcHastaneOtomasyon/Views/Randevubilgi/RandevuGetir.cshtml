@@ -1,0 +1,30 @@
+﻿@model MvcHastaneOtomasyon.Models.Siniflar.RandevuBilgi
+@{
+    ViewBag.Title = "RandevuGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Randevu Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("RandevuGuncelle", "Randevubilgi", FormMethod.Post))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.RandevuId)
+    @Html.LabelFor(x => x.Doktor.DoktorId)
+    @Html.DropDownListFor(x => x.Doktorid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Hasta.HastaNo)
+    @Html.DropDownListFor(x => x.Hastano, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.RandevuDate)
+    @Html.TextBoxFor(x => x.RandevuDate, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.RandevuDate, "", new { @style = "color:red" })
+
+    <br />
+    @Html.LabelFor(x => x.RandevuSaat)
+    @Html.TextBoxFor(x => x.RandevuSaat, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.RandevuSaat, "", new { @style = "color:red" })
+</div>
+    <button class="btn btn-warning">Güncelle</button>
+
+}
