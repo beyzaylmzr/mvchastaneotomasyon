@@ -2628,7 +2628,7 @@
     <Content Include="AdminLTE-3.0.4\plugins\toastr\toastr.js.map" />
     <Content Include="AdminLTE-3.0.4\README.md" />
     <None Include="Properties\PublishProfiles\HastaneOtomasyon - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\MvcHastaneOtomasyon2022 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MvcHastaneOtomasyon20220524134421 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

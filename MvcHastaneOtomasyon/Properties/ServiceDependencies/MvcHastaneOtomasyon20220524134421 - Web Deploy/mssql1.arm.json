@@ -51,23 +51,23 @@
             {
               "kind": "v12.0",
               "location": "[parameters('resourceLocation')]",
-              "name": "hastaneotomasyondbserver",
+              "name": "mvchastanedbserver",
               "type": "Microsoft.Sql/servers",
               "apiVersion": "2017-10-01-preview"
             },
             {
               "sku": {
-                "name": "Standard",
-                "tier": "Standard",
-                "capacity": 10
+                "name": "Free",
+                "tier": "Free",
+                "capacity": 5
               },
               "kind": "v12.0,user",
               "location": "[parameters('resourceLocation')]",
-              "name": "hastaneotomasyondbserver/MvcHastaneOtomasyon_db",
+              "name": "mvchastanedbserver/MvcHastaneOtomasyon_db",
               "type": "Microsoft.Sql/servers/databases",
               "apiVersion": "2017-10-01-preview",
               "dependsOn": [
-                "hastaneotomasyondbserver"
+                "mvchastanedbserver"
               ]
             }
           ]

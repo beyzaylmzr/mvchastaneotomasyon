@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Bu dosya, Web projenizin yayımlama/paket işlemi tarafından kullanılıyor. MSBuild dosyasını düzenleyerek
+bu işlemin davranışını düzenleyebilirsiniz. Bununla ilgili daha fazla bilgi edinmek için https://go.microsoft.com/fwlink/?LinkID=208121 adresini ziyaret edin. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAi3gXhZbUgEGJONxp/fyJ9wAAAAACAAAAAAAQZgAAAAEAACAAAABNBSXieSFi8BQ2/xnlbRZ/Qbe6TrH0H017ublIAgWPegAAAAAOgAAAAAIAACAAAACTH1H57qoc7n1Z1LRi1jR0Gno8HTITyEBRklvfUaeL+4AAAAAy8ivvDHXbZT+wcyPJAsAK6w6zyqadRQME1kqCLgCQSK/zICeirRLiBpf+waE6OHylGwtMYyGcAVx2JVJHeP7X686CxDzCQZK6PcJRpJmPtDAohb4yjOcW1FofCQFp9piMSa6y4XldyOxXol05SVvMSiWntnCnqJcM8FDlwncpmEAAAADpCuwjc9tXO3ReXmiLSjJgWaMCH5PBFVqWXGrMe17nRj0pNeLHyMltlU+wppgptV5N+b3YfP92t+HjPRp21lkU</EncryptedPassword>
+    <History>True|2022-05-25T15:43:17.4753876Z;True|2022-05-24T15:31:28.0674295+03:00;True|2022-05-24T14:21:52.8299820+03:00;True|2022-05-24T14:10:48.0349539+03:00;</History>
+  </PropertyGroup>
+</Project>
